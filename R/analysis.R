@@ -1,5 +1,6 @@
 # An analysis is a folder analyses/<name>/ with
-#   analysis.yml  label, description, MaRDI methods and software (ids in knowledge-graph tools/mardi.tsv)
+#   analysis.yml  label, description, MaRDI methods and software (ids in knowledge-graph tools/mardi.tsv),
+#                 `publish: true` once it is meant for the knowledge graph (R/publish.R)
 #   query.rq      SPARQL on the release; returns the analysed records as ?record
 #   analysis.R    defines analyse(data, out_dir) -> list(used_records = <IRIs>, files = <paths>)
 
@@ -12,6 +13,7 @@ read_analysis <- function(name, dir = "analyses") {
   a$query <- file.path(base, "query.rq")
   for (f in c(a$code, a$query)) if (!file.exists(f)) stop("missing ", f, call. = FALSE)
   if (is.null(a$label) || !nzchar(a$label)) stop(name, "/analysis.yml: `label` is missing", call. = FALSE)
+  a$publish <- isTRUE(a$publish)
   a$methods <- unlist(a$methods) %||% character()
   a$software <- unlist(a$software) %||% character()
   a

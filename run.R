@@ -1,6 +1,7 @@
 #!/usr/bin/env Rscript
 # Run one analysis on the pinned release and write its run record.
-#   Rscript run.R <analysis>            a real run: needs committed code, writes runs/<analysis>-<uuid>.ttl
+#   Rscript run.R <analysis>            a real run: needs `publish: true` and the code committed and pushed
+#                                       to the public repository; writes runs/<analysis>-<uuid>.ttl
 #   Rscript run.R <analysis> --dry-run  try it out: results into a temporary folder, no run record
 for (f in list.files("R", pattern = "[.]R$", full.names = TRUE)) source(f)
 
@@ -18,7 +19,9 @@ if (dry) {
 }
 
 project <- read_project_config()
+require_publishable(analysis)               # publish: true in analysis.yml
 commit <- git_commit()                      # before computing: the run belongs to this commit
+require_public_commit(commit, project$repository)   # pushed to the public repository
 release <- read_release_config()
 res <- perform_analysis(analysis, fetch_release(release))
 run_id <- uuid::UUIDgenerate()

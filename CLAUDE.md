@@ -22,8 +22,10 @@ with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property
   Changing the release is the owner's decision.
 - **The research questions, methods and interpretations are the owner's.** Don't add or change an analysis
   without being asked; the `template` is an example and is never run.
-- **Run records are written by `run.R`, never by hand**, and only at a clean commit (the record points to the
-  code at that commit). Results go into `results/<analysis>/`, the record into `runs/`; both in one commit,
+- **Drafts live in the private `LOD-AM/analyses-lab`**; only analyses with `publish: true` in `analysis.yml` come
+  here (owner, planning#54). Never push lab history to this repo: bring an analysis over as a fresh PR with its folder.
+- **Run records are written by `run.R`, never by hand**, and only at a clean commit that is already pushed here
+  (the record points to the code at that commit; `run.R` checks it and `publish: true`). Results go into `results/<analysis>/`, the record into `runs/`; both in one commit,
   tagged `run-<uuid>`. Never change a committed run's results or record: a new run gets a new record.
 - MaRDI ids in `analysis.yml` must be in knowledge-graph `tools/mardi.tsv` first (`make verify-mardi` there);
   terms in queries follow knowledge-graph `CONVENTIONS.md` and its lookup rules (never invent a term).
@@ -37,6 +39,9 @@ with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property
 - Data (owner, 2026-11-27): copper-based objects have no copper values (expected); values such as 0.001 wt %
   are real values, not detection limits.
 - Licences (owner, 2026-11-27): MIT for the code, CC BY 4.0 for results and run records. Analyst: the owner's ORCID iD.
+- Releases (owner, planning#54): one GitHub release per published run, from its tag; Zenodo mints a version DOI.
+  The link from run to DOI (an extra file next to the record, `dcterms:isPartOf` or `prov:alternateOf`) comes with
+  the first DOI, together with knowledge-graph's conventions for it.
 
 ## LOD-AM project (shared block: keep identical in every repo)
 Source of truth: knowledge-graph `CLAUDE.md`. Edit it there first, then copy it unchanged; CI (`scripts/check_shared_block.sh`) fails on drift.
