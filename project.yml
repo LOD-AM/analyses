@@ -1,7 +1,7 @@
 # Who runs the analyses: the prov:agent of every run record (foaf:Person).
 # The owner's ORCID iD as IRI, e.g. https://orcid.org/0000-0000-0000-0000 (to fill in).
 analyst:
-  iri: ""
+  iri: "https://orcid.org/0000-0003-3223-2079"
   name: "Fabian Fricke"
 # The repository the code IRIs of run records point to.
 repository: "https://github.com/LOD-AM/analyses"

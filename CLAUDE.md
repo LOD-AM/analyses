@@ -12,7 +12,9 @@ out=$(mktemp -d); scripts/check_runs.sh ../knowledge-graph "$(Rscript tests/e2e_
 scripts/check_shared_block.sh                                  # shared block vs knowledge-graph
 ```
 `check_runs.sh` needs a knowledge-graph checkout after `make install` and `make fetch`. R packages: `renv`
-(`renv::restore()`); system libraries for `rdflib`: `librdf0-dev libraptor2-dev librasqal3-dev`, and `libuv1-dev`.
+(`renv::restore()`, system library `libuv1-dev`). Queries run in Python rdflib (`scripts/sparql.py`,
+`pip install --require-hashes -r requirements.txt`): the same engine and version as knowledge-graph's tests,
+with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property paths.
 
 ## Rules
 - **Only released data.** Analyses read the pinned release (`release.yml`: Zenodo version DOI, manifest sha256),
@@ -20,18 +22,26 @@ scripts/check_shared_block.sh                                  # shared block vs
   Changing the release is the owner's decision.
 - **The research questions, methods and interpretations are the owner's.** Don't add or change an analysis
   without being asked; the `template` is an example and is never run.
-- **Run records are written by `run.R`, never by hand**, and only at a clean commit (the record points to the
-  code at that commit). Results go into `results/<analysis>/`, the record into `runs/`; both in one commit,
+- **Drafts live in the private `LOD-AM/analyses-lab`**; only analyses with `publish: true` in `analysis.yml` come
+  here (owner, planning#54). Never push lab history to this repo: bring an analysis over as a fresh PR with its folder.
+- **Run records are written by `run.R`, never by hand**, and only at a clean commit that is already pushed here
+  (the record points to the code at that commit; `run.R` checks it and `publish: true`). Results go into `results/<analysis>/`, the record into `runs/`; both in one commit,
   tagged `run-<uuid>`. Never change a committed run's results or record: a new run gets a new record.
 - MaRDI ids in `analysis.yml` must be in knowledge-graph `tools/mardi.tsv` first (`make verify-mardi` there);
   terms in queries follow knowledge-graph `CONVENTIONS.md` and its lookup rules (never invent a term).
-- Versions are pinned: R and packages in `renv.lock`, the release in `release.yml`.
+- Versions are pinned: R and packages in `renv.lock`, Python rdflib in `requirements.txt` (with hashes), the release
+  in `release.yml`.
 
 ## Where to resume (state 2026-11-27)
-- Skeleton only: release check, query, run record, template analysis, tests, CI. No real run yet; the first
-  one replaces the all-zero commit in knowledge-graph's example (planning#47 step 2).
-- Open for the owner: the analyst's ORCID iD in `project.yml` (needed for every real run). Licences (owner,
-  2026-11-27): MIT for the code, CC BY 4.0 for results and run records.
+- First real analysis: `arslantepe-royal-tomb-palace-hoard` (owner's question, 2026-11-27): As, Sn, Pb, Ag, Sb
+  per context, min/Q1/median/Q3/max/sd, on release 0.2.1. Its run should replace the all-zero commit in
+  knowledge-graph's example (planning#47 step 2).
+- Data (owner, 2026-11-27): copper-based objects have no copper values (expected); values such as 0.001 wt %
+  are real values, not detection limits.
+- Licences (owner, 2026-11-27): MIT for the code, CC BY 4.0 for results and run records. Analyst: the owner's ORCID iD.
+- Releases (owner, planning#54): one GitHub release per published run, from its tag; Zenodo mints a version DOI.
+  The link from run to DOI (an extra file next to the record, `dcterms:isPartOf` or `prov:alternateOf`) comes with
+  the first DOI, together with knowledge-graph's conventions for it.
 
 ## LOD-AM project (shared block: keep identical in every repo)
 Source of truth: knowledge-graph `CLAUDE.md`. Edit it there first, then copy it unchanged; CI (`scripts/check_shared_block.sh`) fails on drift.

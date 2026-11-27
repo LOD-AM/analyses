@@ -1,0 +1,11 @@
+"context","element","symbol","analyses","values","not_detected","upper_limits","min","q1","median","q3","max","sd"
+"Palace Hoard","http://purl.obolibrary.org/obo/CHEBI_27563","As",8,8,0,0,2.57,3.71,4.05,4.465,6.08,1.02839
+"Palace Hoard","http://purl.obolibrary.org/obo/CHEBI_27007","Sn",8,0,8,0,,,,,,
+"Palace Hoard","http://purl.obolibrary.org/obo/CHEBI_25016","Pb",8,0,8,0,,,,,,
+"Palace Hoard","http://purl.obolibrary.org/obo/CHEBI_30512","Ag",8,8,0,0,8e-04,0.00095,0.0022,0.003425,0.036,0.0120839
+"Palace Hoard","http://purl.obolibrary.org/obo/CHEBI_30513","Sb",8,8,0,0,7e-04,0.0014,0.00195,0.003275,0.0047,0.0015248
+"Royal Tomb","http://purl.obolibrary.org/obo/CHEBI_27563","As",30,30,0,0,0.054,2.1275,2.425,3.0975,8.66,1.45415
+"Royal Tomb","http://purl.obolibrary.org/obo/CHEBI_27007","Sn",30,30,0,0,0.001,0.001,0.001,0.00675,0.08,0.0147625
+"Royal Tomb","http://purl.obolibrary.org/obo/CHEBI_25016","Pb",30,30,0,0,0.001,0.001,0.007,0.021,0.511,0.127484
+"Royal Tomb","http://purl.obolibrary.org/obo/CHEBI_30512","Ag",30,30,0,0,0.001,0.001,0.042,0.2525,0.469,0.15672
+"Royal Tomb","http://purl.obolibrary.org/obo/CHEBI_30513","Sb",30,30,0,0,0.002,0.007,0.0095,0.022,2.741,0.497341

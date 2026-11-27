@@ -1,4 +1,6 @@
 # Copy this folder to analyses/<name>/ for a new analysis. It is never run itself.
+# publish: true marks an analysis for the knowledge graph; without it only --dry-run works.
+publish: false
 label: "Mean and standard deviation of element values per element (template)"
 description: "Arithmetic mean and standard deviation of the mass fractions (wt %) per element, over all analyses of the release."
 # MaRDI items (https://portal.mardi4nfdi.de/entity/Q…); every id must be listed in

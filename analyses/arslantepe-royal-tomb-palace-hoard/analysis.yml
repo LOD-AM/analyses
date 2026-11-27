@@ -1,0 +1,9 @@
+publish: true   # for the knowledge graph (owner, 2026-11-27)
+label: "As, Sn, Pb, Ag and Sb in the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe"
+description: "Summary per context and element of the mass fractions (wt %) of arsenic, tin, lead, silver and antimony reported for the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe: minimum, first quartile, median, third quartile, maximum and standard deviation, with the number of analyses, values, not detected and upper limits. Not detected and upper limits are counted, not included in the statistics. Quartiles as R's quantile() type 7. Values as reported in release 0.2.1. Copper, the base metal of these objects, has no values in the data."
+methods:
+  - Q7265849   # median
+  - Q7265848   # quartile
+  - Q7266439   # standard deviation
+software:
+  - Q56805     # R (the software)
