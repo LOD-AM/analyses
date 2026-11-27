@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use these analyses or their results, please cite them as below."
+type: software
+title: "LOD-AM analyses"
+abstract: >-
+  Statistical analyses (R) of the released data of LOD-AM (Linked Open Data for
+  Ancient Metallurgy). Each run reads one pinned data release and is described
+  in PROV-O (records used, release, code, MaRDI methods and software, results),
+  so that it becomes part of the LOD-AM knowledge graph.
+authors:
+  - family-names: Fricke
+    given-names: Fabian
+    orcid: "https://orcid.org/0000-0003-3223-2079"
+    website: "https://lod-am.net/about/"
+repository-code: "https://github.com/LOD-AM/analyses"
+url: "https://lod-am.net/"
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - Linked Open Data
+  - archaeometallurgy
+  - statistics
+  - R
+  - provenance
