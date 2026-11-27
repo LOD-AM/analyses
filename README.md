@@ -13,7 +13,7 @@ software, and which results it produced. The model is in
    against the manifest on every run; a mismatch stops the run.
 2. **An analysis** is a folder `analyses/<name>/`:
    - `analysis.yml`: label, description, the MaRDI methods it uses and the software (MaRDI ids)
-   - `query.rq`: SPARQL on the release; returns the analysed records as `?record`
+   - `query.rq`: SPARQL 1.1 on the release; returns the analysed records as `?record`
    - `analysis.R`: defines `analyse(data, out_dir)`, writes its results into `out_dir` and returns
      `list(used_records = …, files = …)`. Only the records it really used count; records the code
      leaves out are documented by the query and the code, not in the record.
@@ -32,8 +32,10 @@ Copy `analyses/template/` for a new analysis (the template itself is never run).
 
 ## Setup
 - R 4.3.3 and the packages in `renv.lock`: `Rscript -e 'renv::restore()'`.
-- System libraries for `rdflib` (Redland): `librdf0-dev libraptor2-dev librasqal3-dev`, and `libuv1-dev`
-  (Debian/Ubuntu).
+- `libuv1-dev` (Debian/Ubuntu) for the R package `fs`.
+- Python 3 with rdflib: `pip install --require-hashes -r requirements.txt`. Queries run in Python rdflib
+  (`scripts/sparql.py`), the same engine and version as the knowledge-graph's query tests, so a query
+  behaves here exactly as there (full SPARQL 1.1, property paths included).
 - `project.yml`: the analyst's ORCID iD (the `prov:agent` of every run).
 
 ## Checks

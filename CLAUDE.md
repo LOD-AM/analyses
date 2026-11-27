@@ -12,7 +12,9 @@ out=$(mktemp -d); scripts/check_runs.sh ../knowledge-graph "$(Rscript tests/e2e_
 scripts/check_shared_block.sh                                  # shared block vs knowledge-graph
 ```
 `check_runs.sh` needs a knowledge-graph checkout after `make install` and `make fetch`. R packages: `renv`
-(`renv::restore()`); system libraries for `rdflib`: `librdf0-dev libraptor2-dev librasqal3-dev`, and `libuv1-dev`.
+(`renv::restore()`, system library `libuv1-dev`). Queries run in Python rdflib (`scripts/sparql.py`,
+`pip install --require-hashes -r requirements.txt`): the same engine and version as knowledge-graph's tests,
+with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property paths.
 
 ## Rules
 - **Only released data.** Analyses read the pinned release (`release.yml`: Zenodo version DOI, manifest sha256),
@@ -25,7 +27,8 @@ scripts/check_shared_block.sh                                  # shared block vs
   tagged `run-<uuid>`. Never change a committed run's results or record: a new run gets a new record.
 - MaRDI ids in `analysis.yml` must be in knowledge-graph `tools/mardi.tsv` first (`make verify-mardi` there);
   terms in queries follow knowledge-graph `CONVENTIONS.md` and its lookup rules (never invent a term).
-- Versions are pinned: R and packages in `renv.lock`, the release in `release.yml`.
+- Versions are pinned: R and packages in `renv.lock`, Python rdflib in `requirements.txt` (with hashes), the release
+  in `release.yml`.
 
 ## Where to resume (state 2026-11-27)
 - Skeleton only: release check, query, run record, template analysis, tests, CI. No real run yet; the first

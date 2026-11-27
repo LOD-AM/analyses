@@ -11,9 +11,12 @@ write <- function(...) write_run_record(analysis, records, "results/template/sum
   ended = as.POSIXct("2026-11-27 16:00:00", tz = "UTC"), out_dir = tempfile(), ...)
 
 test_that("the run record parses and names input, release, code, methods and software", {
-  g <- rdflib::rdf_parse(write(), format = "turtle")
-  q <- function(s) rdflib::rdf_query(g, paste("PREFIX prov: <http://www.w3.org/ns/prov#>",
-                                               "PREFIX dcterms: <http://purl.org/dc/terms/>", s))
+  rec <- write()
+  q <- function(s) {
+    f <- tempfile(fileext = ".rq")
+    writeLines(paste("PREFIX prov: <http://www.w3.org/ns/prov#>", "PREFIX dcterms: <http://purl.org/dc/terms/>", s), f)
+    sparql(f, rec)
+  }
   run <- "https://lod-am.net/id/run/11111111-2222-4333-8444-555555555555"
   expect_setequal(q("SELECT ?m WHERE { ?i prov:hadMember ?m }")$m, records)
   expect_equal(q("SELECT ?r WHERE { ?i prov:wasDerivedFrom ?r }")$r, "https://doi.org/10.5281/zenodo.24469235")

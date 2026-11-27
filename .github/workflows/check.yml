@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: System libraries (Redland RDF for rdflib, libuv)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq librdf0-dev libraptor2-dev librasqal3-dev libuv1-dev libcurl4-openssl-dev
+      - name: System libraries (libuv for fs)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libuv1-dev libcurl4-openssl-dev
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - name: Python rdflib (SPARQL step, scripts/sparql.py)
+        run: python3 -m pip install -q --require-hashes -r requirements.txt
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: "4.3.3"        # as in renv.lock
@@ -19,9 +24,6 @@ jobs:
       - uses: r-lib/actions/setup-renv@v2
       - name: Unit tests
         run: Rscript tests/testthat.R
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.13"
       - name: Knowledge-graph tools
         run: |
           git clone --depth 1 https://github.com/LOD-AM/knowledge-graph ../knowledge-graph

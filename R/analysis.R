@@ -23,7 +23,7 @@ perform_analysis <- function(analysis, release_files, out_dir = file.path("resul
   env <- new.env()
   sys.source(analysis$code, envir = env)
   if (!is.function(env$analyse)) stop(analysis$code, " must define analyse(data, out_dir)", call. = FALSE)
-  data <- run_query(load_release(release_files), analysis$query)
+  data <- run_query(release_files, analysis$query)
   dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
   res <- env$analyse(data, out_dir)
   stray <- setdiff(res$used_records, data$record)
