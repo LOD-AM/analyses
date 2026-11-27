@@ -1,0 +1,5 @@
+# The release is downloaded and checked on every run; it is never committed here.
+data/
+.Rhistory
+.RData
+.Rproj.user/

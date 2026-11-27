@@ -1,0 +1,56 @@
+# CLAUDE.md: LOD-AM analyses
+
+**Public repo.** Statistical analyses (R) of LOD-AM's released data and their run records
+(LOD-AM/planning#47). How a run is described: knowledge-graph `CONVENTIONS.md` "Statistical analyses";
+how to work here: [README.md](README.md).
+
+## Checks (CI `check.yml` runs all of them)
+```bash
+Rscript tests/testthat.R
+scripts/check_runs.sh ../knowledge-graph                       # runs/*.ttl: knowledge-graph terms + shapes, with the release
+out=$(mktemp -d); scripts/check_runs.sh ../knowledge-graph "$(Rscript tests/e2e_run_record.R "$out" | tail -1)"
+scripts/check_shared_block.sh                                  # shared block vs knowledge-graph
+```
+`check_runs.sh` needs a knowledge-graph checkout after `make install` and `make fetch`. R packages: `renv`
+(`renv::restore()`); system libraries for `rdflib`: `librdf0-dev libraptor2-dev librasqal3-dev`, and `libuv1-dev`.
+
+## Rules
+- **Only released data.** Analyses read the pinned release (`release.yml`: Zenodo version DOI, manifest sha256),
+  never the research database or the triplestore's current state. Every file is checked against the manifest.
+  Changing the release is the owner's decision.
+- **The research questions, methods and interpretations are the owner's.** Don't add or change an analysis
+  without being asked; the `template` is an example and is never run.
+- **Run records are written by `run.R`, never by hand**, and only at a clean commit (the record points to the
+  code at that commit). Results go into `results/<analysis>/`, the record into `runs/`; both in one commit,
+  tagged `run-<uuid>`. Never change a committed run's results or record: a new run gets a new record.
+- MaRDI ids in `analysis.yml` must be in knowledge-graph `tools/mardi.tsv` first (`make verify-mardi` there);
+  terms in queries follow knowledge-graph `CONVENTIONS.md` and its lookup rules (never invent a term).
+- Versions are pinned: R and packages in `renv.lock`, the release in `release.yml`.
+
+## Where to resume (state 2026-11-27)
+- Skeleton only: release check, query, run record, template analysis, tests, CI. No real run yet; the first
+  one replaces the all-zero commit in knowledge-graph's example (planning#47 step 2).
+- Open for the owner: the analyst's ORCID iD in `project.yml` (needed for every real run), the licence.
+
+## LOD-AM project (shared block: keep identical in every repo)
+Source of truth: knowledge-graph `CLAUDE.md`. Edit it there first, then copy it unchanged; CI (`scripts/check_shared_block.sh`) fails on drift.
+LOD-AM = Linked Open Data for Ancient Metallurgy, a one-person research project (https://lod-am.net).
+- `LOD-AM/knowledge-graph`: data model, vocabularies, converters, data. **Authority for all modelling rules** (`CONVENTIONS.md`).
+- `LOD-AM/triplestore`: Apache Jena Fuseki (Docker) that serves the knowledge graph.
+- `LOD-AM/ingest` (**private**): the owner's research database (dump), its checks and correction rounds; the database as a whole stays private until the owner says otherwise.
+- `LOD-AM/pipeline`: the data pipeline, code only (database snapshot → R2RML/Ontop → enrichment → checks → released publications); runs on the data LXC, never with data on GitHub.
+- `LOD-AM/extractor` (**private**): extracts analysis data from publications with local models on the owner's AI machine, as proposals for review that go into the research database (ingest).
+- `LOD-AM/website`: Eleventy site and blog, self-hosted.
+- `LOD-AM/planning` (**private**): project management for all repos: one issue per task, state in labels (see its README).
+- `LOD-AM/ontologies`, `vocabularies`, `converter`: **superseded** by knowledge-graph; don't edit.
+
+Rules for every repo:
+- Base IRI `https://lod-am.net/id/`; CIDOC CRM **7.1.3**. Don't restate modelling rules elsewhere; link to knowledge-graph `CONVENTIONS.md`.
+- Work on a branch and open a PR to `main`; never push to `main`. Create issues, PRs or comments only when asked.
+- Domain/modelling decisions belong to the owner: raise them as `LOD-AM/planning` issues (label `modelling`) instead of deciding silently.
+- Never commit secrets (passwords, SMTP credentials, `.env`, `shiro.ini`).
+- English for code, docs and commits. Keep commits small and explain *why*.
+- Verify before you claim: run the repo's checks and report what you ran.
+- Open work lives in `LOD-AM/planning` (issues with `status:`/`area:` labels; keep them true);
+  PRs reference it (`Closes LOD-AM/planning#<n>`). Each CLAUDE.md's "Where to resume" keeps only
+  repo-specific notes. The owner merges PRs; after a merge, start new work from the updated `main`.

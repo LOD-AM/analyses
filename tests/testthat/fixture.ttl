@@ -1,0 +1,12 @@
+@prefix afr:  <http://purl.allotrope.org/ontologies/result#> .
+@prefix afx:  <http://purl.allotrope.org/ontologies/property#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Two synthetic analyses with copper values (test data only, not LOD-AM data).
+<https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000001> afx:AFX_0000395 <https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000001/cu> .
+<https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000001/cu> a afr:AFR_0002099 ;
+    afx:AFX_0002816 <http://purl.obolibrary.org/obo/CHEBI_28694> ; qudt:numericValue "90.5"^^xsd:decimal .
+<https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000002> afx:AFX_0000395 <https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000002/cu> .
+<https://lod-am.net/id/analysis/00000000-0000-4000-8000-000000000002/cu> a afr:AFR_0002099 ;
+    afx:AFX_0002816 <http://purl.obolibrary.org/obo/CHEBI_28694> ; qudt:numericValue "95.5"^^xsd:decimal .

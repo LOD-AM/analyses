@@ -1,0 +1,9 @@
+# The data release the analyses in this repository read (LOD-AM/planning#48).
+# A release is identified by the version DOI of its website release on Zenodo, plus the
+# sha256 of its manifest. `source` serves the same files as that Zenodo deposit (the
+# website repository at the release tag); every file is checked against the manifest.
+# Changing the release is a decision: runs made on another release stay as they are.
+version: "0.2.1"
+doi: "10.5281/zenodo.24469235"
+manifest_sha256: "7e6fde30b95209428b92094ecaa961c0c75f1c2ab689a99dbea0e168167956d2"
+source: "https://raw.githubusercontent.com/LOD-AM/website/0.2.1/data"

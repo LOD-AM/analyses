@@ -1,0 +1,10 @@
+# Copy this folder to analyses/<name>/ for a new analysis. It is never run itself.
+label: "Mean and standard deviation of element values per element (template)"
+description: "Arithmetic mean and standard deviation of the mass fractions (wt %) per element, over all analyses of the release."
+# MaRDI items (https://portal.mardi4nfdi.de/entity/Q…); every id must be listed in
+# knowledge-graph tools/mardi.tsv first (make verify-mardi there).
+methods:
+  - Q7271028   # arithmetic mean
+  - Q7266439   # standard deviation
+software:
+  - Q56805     # R (the software)
