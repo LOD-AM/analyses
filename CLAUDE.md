@@ -32,10 +32,10 @@ with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property
 
 ## Where to resume (state 2026-11-27)
 - First real analysis: `arslantepe-royal-tomb-palace-hoard` (owner's question, 2026-11-27): As, Sn, Pb, Ag, Sb
-  per context, min/Q1/median/Q3/max/sd, run on release 0.2.1 "as reported" (owner). Its run should replace the
-  all-zero commit in knowledge-graph's example (planning#47 step 2).
-- Open data questions (not checked against the publication): Royal Tomb values at exactly 0.001 / 0.0001 wt %
-  may be detection limits stored as values; release 0.2.1 has no copper values at all.
+  per context, min/Q1/median/Q3/max/sd, on release 0.2.1. Its run should replace the all-zero commit in
+  knowledge-graph's example (planning#47 step 2).
+- Data (owner, 2026-11-27): copper-based objects have no copper values (expected); values such as 0.001 wt %
+  are real values, not detection limits.
 - Licences (owner, 2026-11-27): MIT for the code, CC BY 4.0 for results and run records. Analyst: the owner's ORCID iD.
 
 ## LOD-AM project (shared block: keep identical in every repo)
