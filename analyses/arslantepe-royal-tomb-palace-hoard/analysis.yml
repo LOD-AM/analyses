@@ -1,8 +1,8 @@
-label: "Element contents of the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe"
-description: "Summary per context and element of the mass fractions (wt %) reported for the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe: number of analyses, number of values, not detected, upper limits, mean, standard deviation, median, minimum and maximum. Not detected and upper limits are counted, not included in the statistics."
+label: "As, Sn, Pb, Ag and Sb in the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe"
+description: "Summary per context and element of the mass fractions (wt %) of arsenic, tin, lead, silver and antimony reported for the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe: minimum, first quartile, median, third quartile, maximum and standard deviation, with the number of analyses, values, not detected and upper limits. Not detected and upper limits are counted, not included in the statistics. Quartiles as R's quantile() type 7. Values as reported in release 0.2.1: in the Royal Tomb, 21 of 30 Sn, 12 of 30 Pb and 9 of 30 Ag values are exactly 0.001 wt % and may be detection limits stored as values (not checked against the publication), which affects the lower statistics of these elements."
 methods:
-  - Q7271028   # arithmetic mean
-  - Q7266439   # standard deviation
   - Q7265849   # median
+  - Q7265848   # quartile
+  - Q7266439   # standard deviation
 software:
   - Q56805     # R (the software)

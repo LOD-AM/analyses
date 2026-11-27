@@ -31,10 +31,12 @@ with full SPARQL 1.1. R's `rdflib` (Redland) is not used: it cannot run property
   in `release.yml`.
 
 ## Where to resume (state 2026-11-27)
-- Skeleton only: release check, query, run record, template analysis, tests, CI. No real run yet; the first
-  one replaces the all-zero commit in knowledge-graph's example (planning#47 step 2).
-- Open for the owner: the analyst's ORCID iD in `project.yml` (needed for every real run). Licences (owner,
-  2026-11-27): MIT for the code, CC BY 4.0 for results and run records.
+- First real analysis: `arslantepe-royal-tomb-palace-hoard` (owner's question, 2026-11-27): As, Sn, Pb, Ag, Sb
+  per context, min/Q1/median/Q3/max/sd, run on release 0.2.1 "as reported" (owner). Its run should replace the
+  all-zero commit in knowledge-graph's example (planning#47 step 2).
+- Open data questions (not checked against the publication): Royal Tomb values at exactly 0.001 / 0.0001 wt %
+  may be detection limits stored as values; release 0.2.1 has no copper values at all.
+- Licences (owner, 2026-11-27): MIT for the code, CC BY 4.0 for results and run records. Analyst: the owner's ORCID iD.
 
 ## LOD-AM project (shared block: keep identical in every repo)
 Source of truth: knowledge-graph `CLAUDE.md`. Edit it there first, then copy it unchanged; CI (`scripts/check_shared_block.sh`) fails on drift.
