@@ -1,0 +1,73 @@
+@prefix prov:      <http://www.w3.org/ns/prov#> .
+@prefix dcterms:   <http://purl.org/dc/terms/> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:      <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix mardi:     <https://portal.mardi4nfdi.de/entity/> .
+
+# Run of analyses/arslantepe-royal-tomb-palace-hoard at commit 4b3bb6c91a384297d528963112dbbcb6004896b9 (written by run.R).
+<https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32> a prov:Activity ;
+    rdfs:label "As, Sn, Pb, Ag and Sb in the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe"@en ;
+    dcterms:description "Summary per context and element of the mass fractions (wt %) of arsenic, tin, lead, silver and antimony reported for the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe: minimum, first quartile, median, third quartile, maximum and standard deviation, with the number of analyses, values, not detected and upper limits. Not detected and upper limits are counted, not included in the statistics. Quartiles as R's quantile() type 7. Values as reported in release 0.2.1. Copper, the base metal of these objects, has no values in the data."@en ;
+    prov:used <https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/input> ;
+    prov:generated <https://github.com/LOD-AM/analyses/blob/run-6297f675-1e83-40aa-893b-c878ed805a32/results/arslantepe-royal-tomb-palace-hoard/summary.csv> ;
+    prov:wasAssociatedWith <https://orcid.org/0000-0003-3223-2079>, mardi:Q56805 ;
+    prov:qualifiedAssociation <https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/association>, <https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/software_1> ;
+    prov:endedAtTime "2026-11-27T17:34:53Z"^^xsd:dateTime .
+
+<https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/association> a prov:Association ;
+    prov:agent <https://orcid.org/0000-0003-3223-2079> ;
+    prov:hadPlan <https://github.com/LOD-AM/analyses/blob/4b3bb6c91a384297d528963112dbbcb6004896b9/analyses/arslantepe-royal-tomb-palace-hoard/analysis.R>, mardi:Q7265849, mardi:Q7265848, mardi:Q7266439 .
+<https://github.com/LOD-AM/analyses/blob/4b3bb6c91a384297d528963112dbbcb6004896b9/analyses/arslantepe-royal-tomb-palace-hoard/analysis.R> a prov:Plan .
+mardi:Q7265849 a prov:Plan .
+mardi:Q7265848 a prov:Plan .
+mardi:Q7266439 a prov:Plan .
+<https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/software_1> a prov:Association ; prov:agent mardi:Q56805 .
+mardi:Q56805 a prov:SoftwareAgent .
+<https://orcid.org/0000-0003-3223-2079> a foaf:Person ; foaf:name "Fabian Fricke" .
+
+<https://lod-am.net/id/run/6297f675-1e83-40aa-893b-c878ed805a32/input> a prov:Collection ;
+    prov:hadMember <https://lod-am.net/id/analysis/03a924e6-44ad-47e8-aa09-10ab3821cdaf>,
+        <https://lod-am.net/id/analysis/059aa4a8-4e34-478d-a2ca-457a39a55326>,
+        <https://lod-am.net/id/analysis/0a4d21ee-092d-449e-8d93-b7c3431ca348>,
+        <https://lod-am.net/id/analysis/0f01d87e-d13e-4dd5-82ef-71bab4835c7f>,
+        <https://lod-am.net/id/analysis/1f6dccd8-80be-474c-a8d6-7f684419cbf0>,
+        <https://lod-am.net/id/analysis/20c1801a-5046-4e61-ba56-a637e9f3807d>,
+        <https://lod-am.net/id/analysis/21078063-5607-4648-a917-2286ed7333bb>,
+        <https://lod-am.net/id/analysis/22a0edd5-47ac-44cf-98e7-7bf358b830e3>,
+        <https://lod-am.net/id/analysis/2c658f12-ea03-4ec1-9545-7297d846f04f>,
+        <https://lod-am.net/id/analysis/32d5f0b3-e8e4-422b-92cc-4f06983a2b78>,
+        <https://lod-am.net/id/analysis/3607d552-14c6-46a5-832e-b711a3171b21>,
+        <https://lod-am.net/id/analysis/53054c18-2928-42c3-b289-0bf8ea7e3f34>,
+        <https://lod-am.net/id/analysis/582ac3de-325f-40d2-a202-2e67685e2b33>,
+        <https://lod-am.net/id/analysis/593362f2-0a71-46f2-aed8-febe346669bd>,
+        <https://lod-am.net/id/analysis/64c24c93-aca3-4754-9d43-52375bc62db1>,
+        <https://lod-am.net/id/analysis/667c6f40-57b7-46ec-85c2-c003b7ad3a4b>,
+        <https://lod-am.net/id/analysis/6e5b383b-432d-4ce6-9df5-e7406b25db13>,
+        <https://lod-am.net/id/analysis/8a82c6de-5b63-4493-835b-090f81609161>,
+        <https://lod-am.net/id/analysis/8c130027-1522-4d19-991b-d3905690b8b1>,
+        <https://lod-am.net/id/analysis/8c6b5935-1ff7-45a1-8e85-6c5629f6b2ce>,
+        <https://lod-am.net/id/analysis/9064f3e1-3e18-48ba-a9f0-13be09d7ecb4>,
+        <https://lod-am.net/id/analysis/91c18514-41f2-4466-b256-85a96077ea2e>,
+        <https://lod-am.net/id/analysis/9fa29900-74b4-432a-a46c-ff27988d0449>,
+        <https://lod-am.net/id/analysis/9fe3ecbf-d19d-4ccf-8ddc-695d7e175d38>,
+        <https://lod-am.net/id/analysis/a920794b-40b3-4c5e-b835-ebc454864f0d>,
+        <https://lod-am.net/id/analysis/aba832e5-b6f6-4f04-9da5-8ff7beccf611>,
+        <https://lod-am.net/id/analysis/ac884993-dea4-456d-bc32-acf092423084>,
+        <https://lod-am.net/id/analysis/aee5c0e1-e564-4921-b3cd-ba4fc4b8ad29>,
+        <https://lod-am.net/id/analysis/b04f558b-1e56-48b2-9d5b-a69ccb983a4e>,
+        <https://lod-am.net/id/analysis/b53e78e1-c79b-4502-96ed-115c4f54ac64>,
+        <https://lod-am.net/id/analysis/b69c92e2-9373-485d-9bfd-e0717c21f15a>,
+        <https://lod-am.net/id/analysis/b8efcd0c-c3d6-4ffc-afd4-ec1576e87d17>,
+        <https://lod-am.net/id/analysis/cc2985cd-cb3c-46c1-9858-126ce3cb2d59>,
+        <https://lod-am.net/id/analysis/d21a044e-73bd-4fb8-bd6b-7daf8a3bc437>,
+        <https://lod-am.net/id/analysis/d7925926-8c7b-40e8-8561-3f86b26f76ba>,
+        <https://lod-am.net/id/analysis/eb33ba0b-bf44-417b-a1e0-3406650e2a6e>,
+        <https://lod-am.net/id/analysis/fad1e5eb-9989-41a4-9c3d-6f99be03bbf7>,
+        <https://lod-am.net/id/analysis/fd422b8a-f9f4-4487-a703-722dfc948f0d> ;
+    prov:wasDerivedFrom <https://doi.org/10.5281/zenodo.24469235> ;
+    dcterms:source <https://github.com/LOD-AM/analyses/blob/4b3bb6c91a384297d528963112dbbcb6004896b9/analyses/arslantepe-royal-tomb-palace-hoard/query.rq> .
+<https://doi.org/10.5281/zenodo.24469235> a prov:Entity ;
+    rdfs:label "LOD-AM release 0.2.1"@en ;
+    dcterms:identifier "7e6fde30b95209428b92094ecaa961c0c75f1c2ab689a99dbea0e168167956d2" .
+<https://github.com/LOD-AM/analyses/blob/run-6297f675-1e83-40aa-893b-c878ed805a32/results/arslantepe-royal-tomb-palace-hoard/summary.csv> a prov:Entity .
