@@ -43,3 +43,7 @@ Copy `analyses/template/` for a new analysis (the template itself is never run).
   knowledge-graph vocabularies, so an analysed record that is not in the release is rejected.
 - CI (`.github/workflows/check.yml`) runs both, plus an end-to-end run of the template on the
   release (never committed).
+
+## Licence
+Code: MIT ([LICENSE](LICENSE)). Results in `results/` and run records in `runs/`: CC BY 4.0
+([LICENSE-results.md](LICENSE-results.md)).

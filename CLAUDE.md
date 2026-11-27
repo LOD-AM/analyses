@@ -30,7 +30,8 @@ scripts/check_shared_block.sh                                  # shared block vs
 ## Where to resume (state 2026-11-27)
 - Skeleton only: release check, query, run record, template analysis, tests, CI. No real run yet; the first
   one replaces the all-zero commit in knowledge-graph's example (planning#47 step 2).
-- Open for the owner: the analyst's ORCID iD in `project.yml` (needed for every real run), the licence.
+- Open for the owner: the analyst's ORCID iD in `project.yml` (needed for every real run). Licences (owner,
+  2026-11-27): MIT for the code, CC BY 4.0 for results and run records.
 
 ## LOD-AM project (shared block: keep identical in every repo)
 Source of truth: knowledge-graph `CLAUDE.md`. Edit it there first, then copy it unchanged; CI (`scripts/check_shared_block.sh`) fails on drift.
