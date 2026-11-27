@@ -1,0 +1,8 @@
+label: "Element contents of the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe"
+description: "Summary per context and element of the mass fractions (wt %) reported for the analysed objects from the Royal Tomb and the Palace Hoard of Arslantepe: number of analyses, number of values, not detected, upper limits, mean, standard deviation, median, minimum and maximum. Not detected and upper limits are counted, not included in the statistics."
+methods:
+  - Q7271028   # arithmetic mean
+  - Q7266439   # standard deviation
+  - Q7265849   # median
+software:
+  - Q56805     # R (the software)
